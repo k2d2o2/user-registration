@@ -7,6 +7,8 @@ module.exports = function() {
     var db_config = {
         host: '127.0.0.1',
         database: 'test',
+        user: 'root',
+        password: '1234',
         multipleStatements: true
     };
 

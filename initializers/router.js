@@ -3,9 +3,9 @@ var cookieParser = require('cookie-parser')
 /**
 * Express Router, handles all user entity related routes and middleware
 */
-module.exports = function(userRouter, userControllerObj, userAuth) {
+module.exports = function(userRouter, userControllerObj, userAuth, todoControllerObj) {
 
-    
+
     userRouter.get('/api/logout', userControllerObj.logout);
 
     userRouter.use(cookieParser());
@@ -14,9 +14,12 @@ module.exports = function(userRouter, userControllerObj, userAuth) {
     //userRouter.get('/user', userControllerObj.getUsers);
 
     userRouter.use(bodyParser.json());
-    
+
     userRouter.post('/api/login', userControllerObj.login);
     userRouter.post('/api/user', userControllerObj.signup);
+
+    userRouter.get('/api/todo', todoControllerObj.getTodo);
+    userRouter.post('/api/addtodo', todoControllerObj.addTodo);
 
 
 };

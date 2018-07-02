@@ -5,7 +5,7 @@
 module.exports = function(app, express) {
 	var expressConfig = require('./expressConfig');
 	var router = require('./router');
-    var usersRouter = express.Router();   
+    var usersRouter = express.Router();
 
     //components
     var mysqlConnection = require('./../components/mysql')();
@@ -13,10 +13,12 @@ module.exports = function(app, express) {
 
     //models
     var userModels = require('./../models/userModels')(mysqlConnection);
+    const todoModels = require('./../models/todoModels')(mysqlConnection);
 
     //controllers
     var userObj = require('./../controllers/usersController')(userModels, userAuth);
+    const todoObj = require('./../controllers/todoController')(todoModels);
 
-    router(usersRouter, userObj, userAuth);
+    router(usersRouter, userObj, userAuth, todoObj);
     expressConfig(app, usersRouter);
 };

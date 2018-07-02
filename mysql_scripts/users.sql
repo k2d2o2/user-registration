@@ -5,3 +5,19 @@ CREATE TABLE `test`.`users` (
   `name` VARCHAR(100) NULL,
   `city` VARCHAR(100) NULL,
   PRIMARY KEY (`emailID`));
+
+CREATE TABLE `test`.`todo` (
+  `id` INT NOT NULL,
+  `todotext` VARCHAR(100) NOT NULL,
+  `completed` BOOLEAN NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+SELECT * FROM `test`.`todo`;
+SELECT count(*) as `id` FROM `test`.`todo`;
+
+DELETE FROM `test`.`todo`;
+
+
+INSERT INTO `test`.`todo` (id, todotext, completed) VALUES(0, 'abcd', false);
+
