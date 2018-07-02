@@ -22,7 +22,7 @@ let AddTodo = ({ dispatch }) => {
         console.log("dataObj: " + dataObj)
         $.ajax({
             method: 'POST',
-            url: 'api/addtodo',
+            url: 'api/item',
             contentType: 'application/json',
             data: JSON.stringify(dataObj),
             dataType: 'json'

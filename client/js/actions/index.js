@@ -11,7 +11,7 @@ export const addTodo = (text) => ({
 //thunk
 export const loadTodo = () => {
     return dispatch => {
-        return fetch(`http://localhost:3000/api/todo`,
+        return fetch(`http://localhost:3000/api/list`,
             {
                 method: "GET",
                 headers: {
@@ -49,7 +49,25 @@ export const setVisibilityFilter = (filter) => ({
   filter
 })
 
-export const toggleTodo = (id) => ({
-  type: 'TOGGLE_TODO',
-  id
-})
+
+export const toggleTodo = (id) => {
+    return dispatch => {
+        return fetch(`http://localhost:3000/api/item`,
+            {
+                method: "PUT",
+                body: JSON.stringify({id : id}),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }
+        )
+            .then(response => response.json())
+            .then(json => dispatch(toggleTodoDone(id)))
+    }
+
+}
+export const toggleTodoDone = (id) =>
+    ({
+        type: 'TOGGLE_TODO',
+        id
+    })

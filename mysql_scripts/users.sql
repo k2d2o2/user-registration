@@ -16,6 +16,9 @@ CREATE TABLE `test`.`todo` (
 SELECT * FROM `test`.`todo`;
 SELECT count(*) as `id` FROM `test`.`todo`;
 
+SELECT completed FROM `test`.`todo` WHERE id = 3
+UPDATE `test`.`todo` SET completed = !completed WHERE id = 3 ;
+
 DELETE FROM `test`.`todo`;
 
 

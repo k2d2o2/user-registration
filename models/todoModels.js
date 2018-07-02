@@ -18,6 +18,18 @@ module.exports = function(connection) {
                 }
             });
     };
+    todoModelObj.toggleTodo = function(id, callback) {
+        var query = 'UPDATE todo SET completed = !completed WHERE id = ? ;'
+
+        connection.query(query, [id],
+            function(err, results) {
+                if (!err) {
+                    callback(null, results);
+                } else {
+                    callback(err);
+                }
+            });
+    }
     todoModelObj.getTodo = function(callback) {
         var query = 'select * from todo;'
         connection.query(query, [],

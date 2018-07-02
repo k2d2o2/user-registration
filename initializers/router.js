@@ -18,8 +18,9 @@ module.exports = function(userRouter, userControllerObj, userAuth, todoControlle
     userRouter.post('/api/login', userControllerObj.login);
     userRouter.post('/api/user', userControllerObj.signup);
 
-    userRouter.get('/api/todo', todoControllerObj.getTodo);
-    userRouter.post('/api/addtodo', todoControllerObj.addTodo);
+    userRouter.get('/api/list', todoControllerObj.getTodo);
+    userRouter.post('/api/item', todoControllerObj.addTodo);
+    userRouter.put('/api/item', todoControllerObj.toggleTodo);
 
 
 };

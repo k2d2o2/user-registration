@@ -16,6 +16,19 @@ module.exports = function(todoModels) {
             }
         })
     }
+    todoObj.toggleTodo = function(req, res, next) {
+        const id = req.body.id
+        todoModels.toggleTodo(id, function(err, result) {
+            if (err) {
+                res.status(500).send({
+                    "error": "server error"
+                })
+            }
+            else {
+                res.status(200).send(result);
+            }
+        })
+    }
     todoObj.getTodo = function(req, res, next) {
         todoModels.getTodo(function(err, result) {
             if (err) {
