@@ -13,14 +13,14 @@ CREATE TABLE `test`.`todo` (
   PRIMARY KEY (`id`)
 );
 
-SELECT * FROM `test`.`todo`;
-SELECT count(*) as `id` FROM `test`.`todo`;
-
-SELECT completed FROM `test`.`todo` WHERE id = 3
-UPDATE `test`.`todo` SET completed = !completed WHERE id = 3 ;
-
-DELETE FROM `test`.`todo`;
-
-
-INSERT INTO `test`.`todo` (id, todotext, completed) VALUES(0, 'abcd', false);
+# SELECT * FROM `test`.`todo`;
+# SELECT count(*) as `id` FROM `test`.`todo`;
+#
+# SELECT completed FROM `test`.`todo` WHERE id = 3
+# UPDATE `test`.`todo` SET completed = !completed WHERE id = 3 ;
+#
+# DELETE FROM `test`.`todo`;
+#
+#
+# INSERT INTO `test`.`todo` (id, todotext, completed) VALUES(0, 'abcd', false);
 
